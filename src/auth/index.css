@@ -1,0 +1,17 @@
+// login and register form styles
+.form-sign-in,
+.form-register {
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-sign-in input,
+.form-register input {
+  margin-bottom: 10px;
+}
+
+.form-sign-in .form-floating:focus-within,
+.form-register .form-floating:focus-within {
+  z-index: 2;
+}
