@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import firebase from './Firebase';
 import md5 from 'md5';
 
-import './index.css';
+import './form.css';
 
 class Register extends React.Component {
 

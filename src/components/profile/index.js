@@ -2,6 +2,8 @@ import React from 'react';
 import firebase from './../../auth/Firebase';
 import { connect } from 'react-redux';
 
+import './index.css';
+
 class UserProfile extends React.Component {
 
   state = {
@@ -24,10 +26,13 @@ class UserProfile extends React.Component {
     const { user } = this.state;
     return (
       <React.Fragment>
-        <div>
-          Sign in as <strong>{user}</strong>
-          <span onClick={this.handleSignOut} style={{ cursor: "pointer" }}>Sign out</span>
-        </div>
+        <header>
+          <h1 className="logo">Logo</h1>
+          <div className="user-profile">
+            Sign in as <strong>{user}</strong>
+            <span onClick={this.handleSignOut} className="sign-out">Sign out</span>
+          </div>
+        </header>
       </React.Fragment>
     )
   }

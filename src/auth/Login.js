@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import firebase from './Firebase';
 
-import './index.css';
+import './form.css';
 
 class Login extends React.Component {
 

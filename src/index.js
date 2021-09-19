@@ -9,6 +9,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
+import './../node_modules/bootstrap/dist/js/bootstrap.min.js';
+
 import App from './App';
 import Register from './auth/Register';
 import Login from './auth/Login';
