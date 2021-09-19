@@ -12,8 +12,8 @@ import './index.css';
 import './../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
 import App from './App';
-import Register from './auth/Register';
-import Login from './auth/Login';
+import Register from './auth/register';
+import Login from './auth/login';
 import rootReducer from './redux/reducers';
 import { setUser, clearUser } from './redux/actions';
 

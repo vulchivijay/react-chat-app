@@ -1,5 +1,5 @@
 import React from 'react';
-import firebase from './../../auth/Firebase';
+import firebase from './../../auth/firebase';
 import { connect } from 'react-redux';
 
 import './index.css';
@@ -13,6 +13,7 @@ class UserProfile extends React.Component {
   componentDidMount() {
     this.setState({user: this.props.currentUser.displayName });
   }
+  
   handleSignOut = () => {
     firebase
     .auth()
