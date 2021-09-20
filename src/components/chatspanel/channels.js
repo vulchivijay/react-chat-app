@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../../auth/firebase';
 import { connect } from 'react-redux';
+import { setCurrentChannel } from './../../redux/actions';
 
 import './index.css';
 
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser
-})
+});
 
 function Channels (props) {
   const [channels, setChannels] = useState([]);
@@ -73,6 +74,10 @@ function Channels (props) {
     });
   }
 
+  const changeChannel = channel => {
+    setCurrentChannel(channel);
+  }
+
   useEffect(() => {
     setUserDisplayName(props.currentUser.displayName);
     setUserPhotoURL(props.currentUser.photoURL);
@@ -83,12 +88,13 @@ function Channels (props) {
     <div className="chat-channels">
       <h3 className="space-between">
         <span>Channels ({channels.length})</span>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#channelModal">Add</button>
+        <i className="bi bi-plus-square-fill" data-bs-toggle="modal" data-bs-target="#channelModal"></i>
+        {/* <button type="button" className="btn btn-primary" ></button> */}
       </h3>
       <div className="channel-list">
         {
           channels.length > 0 && channels.map(channel => (
-            <b key={channel.id} onClick={() => console.log(channel)} > #{channel.name}</b>
+            <b key={channel.id} onClick={() => changeChannel(channel)} > #{channel.name}</b>
           ))
         }
       </div>
@@ -117,4 +123,4 @@ function Channels (props) {
   )
 }
 
-export default connect(mapStateToProps)(Channels);
+export default connect(mapStateToProps, { setCurrentChannel })(Channels);

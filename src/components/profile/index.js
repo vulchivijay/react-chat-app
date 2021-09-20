@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 
 import './index.css';
 
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+})
+
 class UserProfile extends React.Component {
 
   state = {
@@ -11,7 +15,7 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({user: this.props.currentUser.displayName });
+    this.setState({ user: this.props.currentUser.displayName });
   }
   
   handleSignOut = () => {
@@ -38,9 +42,5 @@ class UserProfile extends React.Component {
     )
   }
 }
-
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-})
 
 export default connect(mapStateToProps)(UserProfile);

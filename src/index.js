@@ -7,6 +7,7 @@ import { Provider, connect } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import "./../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 import './index.css';
 
 import './../node_modules/bootstrap/dist/js/bootstrap.min.js';
