@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
 import firebase from 'firebase';
-import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./../node_modules/bootstrap-icons/font/bootstrap-icons.css";
@@ -15,10 +13,11 @@ import './../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import App from './App';
 import Register from './auth/register';
 import Login from './auth/login';
-import rootReducer from './redux/reducers';
+import store from './redux/store';
 import { setUser, clearUser } from './redux/actions';
 
-const store = createStore(rootReducer, composeWithDevTools());
+window.store = store;
+// const store = createStore(rootReducer, composeWithDevTools());
 
 class Root extends React.Component {
   
