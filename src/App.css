@@ -1,5 +1,44 @@
+html,
+body,
+#root,
+.app-container {
+  height: 100vh;
+}
+
+body {
+  overflow: hidden;
+}
+
+.app-content {
+  height: calc(100vh - 58px);
+}
+
+/* Header */
+header {
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  padding: 5px 0;
+  font-size: 2rem;
+}
+
 .space-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.chat-left-panel {
+  border-right: 1px solid #ccc;
+}
+
+.chat-window {
+  height: calc(100vh - 58px);
+  background-color: #eee;
+}
+
+.chat-userslist {
+  height: calc(100vh - 58px);
+  border-left: 1px solid #ccc;
 }

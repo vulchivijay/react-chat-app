@@ -3,10 +3,10 @@ import Channels from './channels';
 
 import './index.css';
 
-function ChatsList () {
+function ChannelList () {
   return (
     <Channels />
   )
 }
 
-export default ChatsList;
+export default ChannelList;

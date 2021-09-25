@@ -16,6 +16,7 @@ function Channels (props) {
   const channelsRef = firebase.database().ref('channels');
   const [userDisplayName, setUserDisplayName] = useState('');
   const [userPhotoURL, setUserPhotoURL] = useState('');
+  const [activeChannel, setActiveChannel] = useState('');
 
   const handleChange = event => {
 		if (event.target.name === 'channelName') {
@@ -71,10 +72,13 @@ function Channels (props) {
     channelsRef.on('child_added', snap => {
       loadedChannels.push(snap.val());
       setChannels(loadedChannels);
+      setCurrentChannel(loadedChannels[0]);
+      setActiveChannel(loadedChannels[0].id);
     });
   }
 
   const changeChannel = channel => {
+    setActiveChannel(channel.id);
     setCurrentChannel(channel);
   }
 
@@ -86,18 +90,21 @@ function Channels (props) {
 
   return (
     <div className="chat-channels">
-      <h3 className="space-between">
+      <h5 className="space-between">
         <span>Channels ({channels.length})</span>
         <i className="bi bi-plus-square-fill" data-bs-toggle="modal" data-bs-target="#channelModal"></i>
         {/* <button type="button" className="btn btn-primary" ></button> */}
-      </h3>
-      <div className="channel-list">
+      </h5>
+      <ul className="channel-list">
         {
           channels.length > 0 && channels.map(channel => (
-            <b key={channel.id} onClick={() => changeChannel(channel)} > #{channel.name}</b>
+            <li className={channel.id === activeChannel ? 'active': ''}
+              key={channel.id}
+              onClick={() => changeChannel(channel)}
+            > #{channel.name} </li>
           ))
         }
-      </div>
+      </ul>
       {/* Add channel modal */}
       <div className="modal fade" tabIndex="-1" id="channelModal" aria-labelledby="modalLabel" aria-hidden="true">
         <div className="modal-dialog">

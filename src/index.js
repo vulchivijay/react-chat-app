@@ -17,7 +17,6 @@ import store from './redux/store';
 import { setUser, clearUser } from './redux/actions';
 
 window.store = store;
-// const store = createStore(rootReducer, composeWithDevTools());
 
 class Root extends React.Component {
   

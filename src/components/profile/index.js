@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from './../../auth/firebase';
 import { connect } from 'react-redux';
 
@@ -8,17 +8,14 @@ const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 })
 
-class UserProfile extends React.Component {
+function UserProfile (props) {
+  const [user, setUser] = useState('');
 
-  state = {
-    user: null
-  }
-
-  componentDidMount() {
-    this.setState({ user: this.props.currentUser.displayName });
-  }
+  useEffect(() => {
+    setUser(props.currentUser.displayName);
+  }, [user]);
   
-  handleSignOut = () => {
+  const handleSignOut = () => {
     firebase
     .auth()
     .signOut()
@@ -27,20 +24,14 @@ class UserProfile extends React.Component {
     })
   }
 
-  render () {
-    const { user } = this.state;
-    return (
-      <React.Fragment>
-        <header>
-          <h1 className="logo">Logo</h1>
-          <div className="user-profile">
-            Sign in as <strong>{user}</strong>
-            <span onClick={this.handleSignOut} className="sign-out">Sign out</span>
-          </div>
-        </header>
-      </React.Fragment>
-    )
-  }
+  return (
+    (user ? 
+      <div className="user-profile">
+        Sign in as <strong>{user}</strong>
+        <span onClick={handleSignOut} className="sign-out">Sign out</span>
+      </div>
+      : 'loading...')
+  )
 }
 
 export default connect(mapStateToProps)(UserProfile);

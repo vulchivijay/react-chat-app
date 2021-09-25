@@ -27,3 +27,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid #ccc;
+}
+
+ul li {
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+input[type="text"],
+input[type="search"] {
+  padding: 5px 10px;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  background-color: white;
+}

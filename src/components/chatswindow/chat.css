@@ -1,0 +1,33 @@
+/* Chat window designs */
+.chat-window {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.chat-window-header,
+.chat-messages,
+.chat-window-form {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.chat-window-form {
+  height: 144px;
+}
+
+.chat-messages {
+  margin: 15px 0;
+  height: calc(100% - 258px);
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.chat-window-form textarea {
+  width: 100%;
+  height: 80px;
+  resize: none;
+  border: 1px solid #ddd;
+}

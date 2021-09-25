@@ -1,3 +1,17 @@
-.chat-channels h3 {
-  font-size: 1rem;
+.chat-channels h5 {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.chat-channels .bi-plus-square-fill {
+  cursor: pointer;
+}
+
+.channel-list li {
+  cursor: pointer;
+}
+
+.channel-list li.active {
+  background-color: blue;
+  color: white;
 }
