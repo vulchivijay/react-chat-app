@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import mime from 'mime-types';
+import uuidv4 from 'uuid/v4';
 import firebase from './../../auth/firebase';
 
 function ChatForm (props) {
@@ -7,13 +9,16 @@ function ChatForm (props) {
   const user = props.currentUser;
   const [msg, setMsg] = useState();
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState('');
+  const authorizedImage = ['image/jpeg', 'image/png'];
+  const storageRef = firebase.storage().ref();
+  const [uploadTask, setUploadTask] = useState('');
   
   const handleChange = event => {
-    setMsg(event.target.value)
+    setMsg(event.target.value);
   }
 
   const createMessage = () => {
-    console.log('test');
     const message = {
       "timestamp": firebase.database.ServerValue.TIMESTAMP,
       "user": {
@@ -24,6 +29,27 @@ function ChatForm (props) {
       "content": msg,
     }
     return message;
+  }
+
+  const isAuthorizedImage = filename => {
+    return authorizedImage.includes(mime.lookup(filename));
+  }
+
+  const uploadFile = (file, metadata) => {
+    // console.log('test');
+    // const pathToUpload = channel.id;
+    // const ref = messagesRef;
+    const filePath = `chat/public/${uuidv4}.jpg`;
+    
+    storageRef
+      .child(filePath)
+      .put(file, metadata)
+    
+      clearFile();
+  }
+
+  const clearFile = () => {
+    setFile('');
   }
 
   const sendMessage = () => {
@@ -38,20 +64,34 @@ function ChatForm (props) {
           setMsg('');
         })
         .catch((error) => {
-          console.log(error);
           setLoading(false);
+          console.log(error);
         })
     }
     else {
-      console.log('text area is empty');
+      if (file) {
+        if (isAuthorizedImage(file.name)) {
+          const metadata = { contentType: mime.lookup(file.name) };
+          uploadFile(file, metadata);
+        }
+      } else {
+        console.log('text area is empty');
+      }
+    }
+  }
+
+  const addFile = event => {
+    const file = event.target.files[0];
+    if (file) {
+      setFile(file);
     }
   }
 
   return (
     <div className="chat-window-form">
-      <textarea onChange={handleChange}></textarea>
+      <textarea onChange={handleChange} value={msg}></textarea>
       <div className="btn-group space-between">
-        <input type="file"></input>
+        <input type="file" onChange={addFile}></input>
         <button onClick={sendMessage}>Send message</button>
       </div>
     </div>

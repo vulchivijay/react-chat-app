@@ -13,6 +13,19 @@ html {
   line-height: 1.2;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+}
+ 
+*::-webkit-scrollbar-track {
+  box-shadow: none;
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: none;
+}
+
 body {
   margin: 0;
   font-size: 16px;
@@ -49,4 +62,9 @@ button {
   border-radius: 3px;
   border: 1px solid #ccc;
   background-color: white;
+}
+
+.disable {
+  opacity: 0.5;
+  pointer-events: none;
 }
