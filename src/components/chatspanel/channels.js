@@ -5,10 +5,6 @@ import { setCurrentChannel } from './../../redux/actions';
 
 import './index.css';
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-});
-
 function Channels (props) {
   const [channels, setChannels] = useState([]);
   const [channelName, setChannelName] = useState('');
@@ -83,8 +79,8 @@ function Channels (props) {
   }
 
   useEffect(() => {
-    setUserDisplayName(props.currentUser.displayName);
-    setUserPhotoURL(props.currentUser.photoURL);
+    setUserDisplayName(props.userProfile.displayName);
+    setUserPhotoURL(props.userProfile.photoURL);
     channelListners();
   }, [userDisplayName]);
 
@@ -130,4 +126,4 @@ function Channels (props) {
   )
 }
 
-export default connect(mapStateToProps, { setCurrentChannel })(Channels);
+export default connect(null, { setCurrentChannel })(Channels);

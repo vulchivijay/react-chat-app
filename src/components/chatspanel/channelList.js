@@ -3,9 +3,9 @@ import Channels from './channels';
 
 import './index.css';
 
-function ChannelList () {
+function ChannelList (props) {
   return (
-    <Channels />
+    <Channels userProfile={props}/>
   )
 }
 

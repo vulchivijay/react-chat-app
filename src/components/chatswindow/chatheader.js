@@ -7,7 +7,7 @@ function ChatHeader () {
         <div className="col-md-8">
           <h5>
             <span>Channel </span>
-            <i class="bi bi-star"></i>
+            <i className="bi bi-star"></i>
           </h5>
           <span>2 users</span>
         </div>

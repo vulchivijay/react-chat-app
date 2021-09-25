@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import firebase from './../../auth/firebase';
-import { connect } from 'react-redux';
 
 import './index.css';
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
-})
-
 function UserProfile (props) {
-  const [user, setUser] = useState('');
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
-    setUser(props.currentUser.displayName);
-  }, [user]);
+    setUserName(props.userProfile.displayName);
+  }, [userName]);
   
   const handleSignOut = () => {
     firebase
@@ -25,13 +20,13 @@ function UserProfile (props) {
   }
 
   return (
-    (user ? 
+    (userName ? 
       <div className="user-profile">
-        Sign in as <strong>{user}</strong>
+        Sign in as <strong>{userName}</strong>
         <span onClick={handleSignOut} className="sign-out">Sign out</span>
       </div>
       : 'loading...')
   )
 }
 
-export default connect(mapStateToProps)(UserProfile);
+export default UserProfile;
