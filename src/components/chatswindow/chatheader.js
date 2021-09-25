@@ -1,15 +1,15 @@
 import React from 'react';
 
-function ChatHeader () {
+function ChatHeader (props) {
   return (
     <div className="chat-window-header">
       <div className="row">
         <div className="col-md-8">
           <h5>
-            <span>Channel </span>
+            <span>{ props.currentChannel ? props.currentChannel.name : '' } </span>
             <i className="bi bi-star"></i>
           </h5>
-          <span>2 users</span>
+          <span>{props.uniqueUsers} user(s)</span>
         </div>
         <div className="col-md-4">
           <input type="search" placeholder="Search"/>

@@ -22,7 +22,6 @@ function UserProfile (props) {
   return (
     (userName ? 
       <div className="user-profile">
-        Sign in as <strong>{userName}</strong>
         <span onClick={handleSignOut} className="sign-out">Sign out</span>
       </div>
       : 'loading...')

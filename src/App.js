@@ -9,28 +9,30 @@ import './App.css';
 
 const App = ({currentUser, currentChannel}) => {
   return (
-    <div className="app-container container-fluid">
+    <div className="app-container">
       <header>
         <div className="row">
           <div className="col-md-12 space-between">
-            <h1 className="logo">Logo</h1>
+            <h1 className="logo">Hello, <span className="user-name">{currentUser.displayName }</span></h1>
             <Profile userProfile={currentUser} />
           </div>
         </div>
       </header>
-      <div className="app-content row">
-        <div className="col-md-2 chat-left-panel">
-          <ChannelList
-            key={currentUser && currentUser.uid}
-            userProfile={currentUser}
-          />
-        </div>
-        <div className="col-md-10 chat-right-panel">
-          <ChatWindow
-            key={currentChannel && currentChannel.id}
-            currentChannel={currentChannel}
-            currentUser={currentUser}
-          />
+      <div className="app-content container-fluid">
+        <div className="row">
+          <div className="col-md-2 chat-left-panel">
+            <ChannelList
+              key={currentUser && currentUser.uid}
+              userProfile={currentUser}
+            />
+          </div>
+          <div className="col-md-10 chat-right-panel">
+            <ChatWindow
+              key={currentChannel && currentChannel.id}
+              currentChannel={currentChannel}
+              currentUser={currentUser}
+            />
+          </div>
         </div>
       </div>
     </div>

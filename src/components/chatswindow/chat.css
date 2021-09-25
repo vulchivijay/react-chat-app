@@ -54,3 +54,8 @@
   border: 1px solid #ddd;
   background-color: white;
 }
+
+.chat-userslist h5 {
+  margin: 0;
+  padding: 10px 0;
+}
