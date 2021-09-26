@@ -79,8 +79,8 @@ function Channels (props) {
   }
 
   useEffect(() => {
-    setUserDisplayName(props.userProfile.displayName);
-    setUserPhotoURL(props.userProfile.photoURL);
+    setUserDisplayName(props.currentUser.displayName);
+    setUserPhotoURL(props.currentUser.photoURL);
     channelListners();
   }, [userDisplayName]);
 
@@ -91,7 +91,7 @@ function Channels (props) {
         <i className="bi bi-plus-square-fill" data-bs-toggle="modal" data-bs-target="#channelModal"></i>
         {/* <button type="button" className="btn btn-primary" ></button> */}
       </h5>
-      <ul className="channel-list">
+      <ul className="row channel-list">
         {
           channels.length > 0 && channels.map(channel => (
             <li className={channel.id === activeChannel ? 'active': ''}

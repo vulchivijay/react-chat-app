@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Profile from './components/profile';
-import ChannelList from './components/chatspanel/channelList';
+import ChannelPanel from './components/chatspanel/channelpanel';
 import ChatWindow from './components/chatswindow/chatwindow';
 
 import './App.css';
@@ -13,20 +13,30 @@ const App = ({currentUser, currentChannel}) => {
       <header>
         <div className="row">
           <div className="col-md-12 space-between">
-            <h1 className="logo">Hello, <span className="user-name">{currentUser.displayName }</span></h1>
+            <h1 className="logo">Let's talk, <span className="user-name">{currentUser.displayName }</span></h1>
             <Profile userProfile={currentUser} />
           </div>
         </div>
       </header>
       <div className="app-content container-fluid">
         <div className="row">
-          <div className="col-md-2 chat-left-panel">
-            <ChannelList
+          <div className="col-md-1 chat-features">
+            <ul>
+              <li>
+                Chat
+              </li>
+              <li>
+                Channels
+              </li>
+            </ul>
+          </div>
+          <div className="col-md-2 chat-panel">
+            <ChannelPanel
               key={currentUser && currentUser.uid}
               userProfile={currentUser}
             />
           </div>
-          <div className="col-md-10 chat-right-panel">
+          <div className="col-md-9 chat-content">
             <ChatWindow
               key={currentChannel && currentChannel.id}
               currentChannel={currentChannel}

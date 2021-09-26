@@ -1,3 +1,14 @@
+.chat-features {
+
+}
+
+.chat-panel {
+  background-color: #f3f3f3;
+}
+.chat-panel {
+  box-shadow: -1px 0 5px rgb(0 0 0 / 24%);
+}
+
 .chat-channels h5 {
   margin: 0;
   padding: 10px 0;
@@ -12,6 +23,10 @@
 }
 
 .channel-list li.active {
-  background-color: blue;
-  color: white;
+  background-color: var(--bs-white);
+}
+
+.chat-userslist h5 {
+  margin: 0;
+  padding: 10px 0;
 }

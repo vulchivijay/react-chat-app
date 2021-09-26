@@ -88,10 +88,10 @@ function ChatForm (props) {
   }
 
   return (
-    <div className="chat-window-form">
+    <div className="chat-window-form space-between">
       <textarea onChange={handleChange} value={msg}></textarea>
       <div className="btn-group space-between">
-        <input type="file" onChange={addFile}></input>
+        <input type="file" onChange={addFile} className="d-none"></input>
         <button onClick={sendMessage}>Send message</button>
       </div>
     </div>

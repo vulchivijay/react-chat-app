@@ -34,16 +34,12 @@ header {
   align-items: center;
 }
 
-.chat-left-panel {
-  border-right: 1px solid #ccc;
-}
-
 .chat-window {
   height: calc(100vh - 58px);
-  background-color: #eee;
 }
 
-.chat-userslist {
-  height: calc(100vh - 58px);
-  border-left: 1px solid #ccc;
+.user-name {
+  text-shadow: 0 5px rgba(0, 0, 0, .24);
+  font-size: 1.5rem;
+  opacity: 0.24;
 }

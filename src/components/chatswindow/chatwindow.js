@@ -4,7 +4,6 @@ import firebase from './../../auth/firebase';
 import ChatHeader from './chatheader';
 import Messages from './messages';
 import ChatForm from './chatform';
-import DirectMessages from './directmessage';
 
 import './chat.css';
 
@@ -45,7 +44,7 @@ function ChatWindow (props) {
 
   return (
     <div className="row">
-      <div className="col-md-9 chat-window">
+      <div className="col-md-12 chat-window">
         <ChatHeader
           currentChannel={channel}
           uniqueUsers={uniqueUsers}
@@ -57,7 +56,6 @@ function ChatWindow (props) {
           messagesRef={messagesRef}
         />
       </div>
-      <DirectMessages currentUser={user} />
     </div>
   )
 }
