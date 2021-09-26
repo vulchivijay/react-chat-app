@@ -1,32 +1,60 @@
+.chat-features,
+.list-panel {
+  height: calc(100vh - 58px);
+}
+
 .chat-features {
-
+  text-align: center;
+  padding-right: 0;
+  padding-left: 0;
 }
 
-.chat-panel {
-  background-color: #f3f3f3;
+.chat-features li {
+  padding: 5px;
+  font-size: 12px;
 }
-.chat-panel {
+
+.chat-features li.active {
+  background-color: var(--bs-white);
+}
+
+.chat-features li i {
+  font-size: 1.2rem;
+}
+
+.chat-features li span {
+  display: block;
+}
+
+.chat-features,
+.list-panel {
+  background-color: var(--bs-gray-100);
+}
+
+.list-panel {
   box-shadow: -1px 0 5px rgb(0 0 0 / 24%);
 }
 
-.chat-channels h5 {
+.chat-channels h6,
+.chat-userslist h6 {
   margin: 0;
-  padding: 10px 0;
+  padding: 5px 0;
+}
+
+.chat-channels h6 span,
+.chat-userslist h6 span {
+  color: var(--bs-white);
 }
 
 .chat-channels .bi-plus-square-fill {
   cursor: pointer;
 }
 
+.chat-features li,
 .channel-list li {
   cursor: pointer;
 }
 
 .channel-list li.active {
   background-color: var(--bs-white);
-}
-
-.chat-userslist h5 {
-  margin: 0;
-  padding: 10px 0;
 }

@@ -4,11 +4,7 @@ import firebase from './../../auth/firebase';
 import './index.css';
 
 function UserProfile (props) {
-  const [userName, setUserName] = useState('');
-
-  useEffect(() => {
-    setUserName(props.userProfile.displayName);
-  }, [userName]);
+  const userName = props.userProfile.displayName;
   
   const handleSignOut = () => {
     firebase

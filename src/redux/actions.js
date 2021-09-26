@@ -1,5 +1,4 @@
 import * as actionTypes from './actiontypes';
-import store from './store';
 
 // user actions
 export const setUser = user => {
@@ -19,14 +18,19 @@ export const clearUser = () => {
 
 // current channel
 export const setCurrentChannel = channel => {
-  store.dispatch(currentChannel(channel));
-}
-
-export const currentChannel = channel => {
   return {
     type: actionTypes.SET_CURRENT_CHANNEL,
     payload: {
       currentChannel: channel
+    }
+  }
+}
+
+export const setPrivateChannel = isPrivateChannel => {
+  return {
+    type: actionTypes.SET_PRIVATE_CHANNEL,
+    payload: {
+      isPrivateChannel
     }
   }
 }

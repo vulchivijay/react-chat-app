@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom';
+
 import firebase from 'firebase';
+import store from './redux/store';
 import { Provider, connect } from 'react-redux';
+import { setUser, clearUser } from './redux/actions';
 
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "./../node_modules/bootstrap-icons/font/bootstrap-icons.css";
@@ -13,34 +16,32 @@ import './../node_modules/bootstrap/dist/js/bootstrap.min.js';
 import App from './App';
 import Register from './auth/register';
 import Login from './auth/login';
-import store from './redux/store';
-import { setUser, clearUser } from './redux/actions';
 
-window.store = store;
+// window.store = store;
 
-class Root extends React.Component {
-  
-  componentDidMount () {
+function Root (props) {
+
+  useEffect(() => {
+    console.log('index');
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.props.setUser(user);
-        this.props.history.push('./');
+        props.setUser(user);
+        props.history.push('./');
       } else {
-        this.props.history.push('/login');
-        this.props.clearUser();
+        props.history.push('/login');
+        props.clearUser();
       }
-    })
-  }
+    });
+  }, []);
 
-  render () {
-    return this.props.isLoading ? (<p>Loading</p>) : (
-      <Switch>
-        <Route exact path='/' component={App} />
-        <Route exact path='/register' component={Register} />
-        <Route exact path='/login' component={Login} />
-      </Switch>
-    );
-  }
+  return props.isLoading ? (<p>Loading</p>) : (
+    <Switch>
+      <Route exact path='/' component={App} />
+      <Route exact path='/register' component={Register} />
+      <Route exact path='/login' component={Login} />
+    </Switch>
+  );
+
 }
 
 const mapStateFromProps = state => ({

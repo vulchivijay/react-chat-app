@@ -2,7 +2,8 @@
 .chat-window {
   position: relative;
   padding-top: 15px;
-  box-shadow: 0 0 5px rgb(0 0 0 / 40%);
+  padding-bottom: 15px;
+  box-shadow: 0 0 50px rgb(0 0 0 / 40%);
 }
 
 .chat-window-header,
@@ -14,19 +15,18 @@
 }
 
 .chat-window-form {
-  height: 144px;
+  height: 60px;
 }
 
 .chat-messages {
-  margin: 15px 0;
-  height: calc(100% - 258px);
+  height: calc(100% - 60px);
   overflow: hidden;
   overflow-y: auto;
 }
 
 .chat-window-form textarea {
   width: 80%;
-  height: 80px;
+  height: 50px;
   resize: none;
   border: 1px solid #ddd;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 function ChatHeader (props) {
   return (
-    <div className="chat-window-header">
+    <div className="chat-window-header d-none">
       <div className="row">
         <div className="col-md-8">
           <h5>

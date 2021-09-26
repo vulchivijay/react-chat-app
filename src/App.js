@@ -20,17 +20,7 @@ const App = ({currentUser, currentChannel}) => {
       </header>
       <div className="app-content container-fluid">
         <div className="row">
-          <div className="col-md-1 chat-features">
-            <ul>
-              <li>
-                Chat
-              </li>
-              <li>
-                Channels
-              </li>
-            </ul>
-          </div>
-          <div className="col-md-2 chat-panel">
+          <div className="col-md-3 chat-panel">
             <ChannelPanel
               key={currentUser && currentUser.uid}
               userProfile={currentUser}
@@ -52,6 +42,7 @@ const App = ({currentUser, currentChannel}) => {
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
   currentChannel: state.channel.currentChannel,
+  isPrivateChannel: state.channel.isPrivateChannel
 })
 
 export default connect(mapStateToProps)(App);
