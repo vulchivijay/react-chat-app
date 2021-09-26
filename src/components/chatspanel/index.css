@@ -14,8 +14,10 @@
   font-size: 12px;
 }
 
-.chat-features li.active {
-  background-color: var(--bs-white);
+.chat-features li.active,
+.channel-list li.active {
+  background-color: var(--bs-blue);
+  color: var(--bs-white);
 }
 
 .chat-features li i {
@@ -53,8 +55,4 @@
 .chat-features li,
 .channel-list li {
   cursor: pointer;
-}
-
-.channel-list li.active {
-  background-color: var(--bs-white);
 }

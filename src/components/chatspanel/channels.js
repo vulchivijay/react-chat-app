@@ -70,20 +70,24 @@ function Channels (props) {
     channelsRef.on('child_added', snap => {
       loadedChannels.push(snap.val());
       setChannels(loadedChannels);
-      setCurrentChannel(loadedChannels[0]);
-      setActiveChannel(loadedChannels[0].id);
       setIsChannelsLoaded(true);
     })
   }
 
   const changeChannel = channel => {
+    console.log('change channel');
     setActiveChannel(channel.id);
     setCurrentChannel(channel);
   }
 
   useEffect(() => {
-    console.log('channels');
+    console.log('channels', channels);
     channelListners();
+    if(channels && channels.length > 0) {
+      const firstChannel = channels[0];
+      setCurrentChannel(firstChannel);
+      setActiveChannel(firstChannel.id);
+    }
   }, [isChannelsLoaded]);
 
   return (
