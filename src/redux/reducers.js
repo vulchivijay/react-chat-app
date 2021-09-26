@@ -30,7 +30,6 @@ const initialChannelState = {
 }
 
 const channel_reducer = (state = initialChannelState, action) => {
-  console.log('set current channel reducers');
   switch (action.type) {
     case actionTypes.SET_CURRENT_CHANNEL:
       return {

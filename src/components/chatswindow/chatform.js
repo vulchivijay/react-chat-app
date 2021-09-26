@@ -36,7 +36,6 @@ function ChatForm (props) {
   }
 
   const uploadFile = (file, metadata) => {
-    // console.log('test');
     // const pathToUpload = channel.id;
     // const ref = messagesRef;
     const filePath = `chat/public/${uuidv4}.jpg`;

@@ -13,6 +13,7 @@ function Chats (props) {
 
   const [users, setUsers] = useState();
   const [isUsersLoaded, setIsUsersLoaded] = useState(false);
+  const [selectedUser, setSelectedUser] = useState('');
 
   const addStatusToUser = (userUid, connected = true) => {
     const updatedUsers = users.reduce((acc, user) => {
@@ -80,6 +81,7 @@ function Chats (props) {
       name: user.name
     }
     setCurrentChannel(channelData);
+    setSelectedUser(user.name);
     setPrivateChannel(true);
   }
 
@@ -97,7 +99,10 @@ function Chats (props) {
         {
           users && users.map((user) => {
             return (
-            <li key={user.uid} onClick={() => changeChannel(user) }>
+            <li
+              className={user.name === selectedUser ? 'active': ''}
+              key={user.uid}
+              onClick={() => changeChannel(user) }>
               <i className="bi bi-circle-fill" style={{color: isUserStatus(user) ? '#20c997' : '#dee2e6' }}></i> {' '}
               <span>{ user.name }</span>
             </li>

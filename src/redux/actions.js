@@ -28,7 +28,6 @@ const currentChannel = channel => {
 }
 
 export const setCurrentChannel = channel => {
-  console.log('set current channel actions');
   store.dispatch(currentChannel(channel));
 }
 
@@ -42,6 +41,5 @@ const privateChannel = isPrivateChannel => {
 }
 
 export const setPrivateChannel = isPrivateChannel => {
-  console.log('set private channel actions')
   store.dispatch(privateChannel(isPrivateChannel));
 }

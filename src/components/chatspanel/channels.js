@@ -75,13 +75,11 @@ function Channels (props) {
   }
 
   const changeChannel = channel => {
-    console.log('change channel');
     setActiveChannel(channel.id);
     setCurrentChannel(channel);
   }
 
   useEffect(() => {
-    console.log('channels', channels);
     channelListners();
     if(channels && channels.length > 0) {
       const firstChannel = channels[0];

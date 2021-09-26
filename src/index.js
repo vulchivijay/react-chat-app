@@ -22,7 +22,6 @@ import Login from './auth/login';
 function Root (props) {
 
   useEffect(() => {
-    console.log('index');
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         props.setUser(user);

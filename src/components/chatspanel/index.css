@@ -15,9 +15,12 @@
 }
 
 .chat-features li.active,
-.channel-list li.active {
-  background-color: var(--bs-blue);
-  color: var(--bs-white);
+.channel-list li.active,
+.users-list li.active,
+.chat-features li:hover,
+.channel-list li:hover,
+.users-list li:hover {
+  background-color: var(--bs-gray-200);
 }
 
 .chat-features li i {
@@ -28,13 +31,8 @@
   display: block;
 }
 
-.chat-features,
 .list-panel {
-  background-color: var(--bs-gray-100);
-}
-
-.list-panel {
-  box-shadow: -1px 0 5px rgb(0 0 0 / 24%);
+  box-shadow: -5px 0 8px rgb(0 0 0 / 24%);
 }
 
 .chat-channels h6,
@@ -43,16 +41,9 @@
   padding: 5px 0;
 }
 
-.chat-channels h6 span,
-.chat-userslist h6 span {
-  color: var(--bs-white);
-}
-
-.chat-channels .bi-plus-square-fill {
-  cursor: pointer;
-}
-
+.chat-channels .bi-plus-square-fill,
 .chat-features li,
-.channel-list li {
+.channel-list li,
+.users-list li {
   cursor: pointer;
 }
