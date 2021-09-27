@@ -8,11 +8,9 @@ function ChatForm (props) {
   const messagesRef = props.messagesRef;
   const user = props.currentUser;
   const [msg, setMsg] = useState();
-  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState('');
   const authorizedImage = ['image/jpeg', 'image/png'];
   const storageRef = firebase.storage().ref();
-  const [uploadTask, setUploadTask] = useState('');
   
   const handleChange = event => {
     setMsg(event.target.value);
@@ -53,17 +51,14 @@ function ChatForm (props) {
 
   const sendMessage = () => {
     if (msg) {
-      setLoading(true);
       messagesRef
         .child(channel.id)
         .push()
         .set(createMessage())
         .then(() => {
-          setLoading(false);
           setMsg('');
         })
         .catch((error) => {
-          setLoading(false);
           console.log(error);
         })
     }
@@ -87,11 +82,17 @@ function ChatForm (props) {
   }
 
   return (
-    <div className="chat-window-form space-between">
-      <textarea onChange={handleChange} value={msg}></textarea>
-      <div className="btn-group space-between">
-        <input type="file" onChange={addFile} className="d-none"></input>
-        <button onClick={sendMessage}>Send message</button>
+    <div className="row chat-window-form">
+      <div className="col-md-10  offset-md-1">
+        <textarea onChange={handleChange} value={msg}></textarea>
+        <div className="btn-group space-between">
+          <div>
+            <input type="file" onChange={addFile} className="d-none"></input>
+          </div>
+          <button onClick={sendMessage}>
+            <i className="bi bi-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   )

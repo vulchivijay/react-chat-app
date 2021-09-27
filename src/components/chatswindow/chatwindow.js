@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebase from './../../auth/firebase';
 
 import ChatHeader from './chatheader';
@@ -13,13 +13,13 @@ function ChatWindow (props) {
   const channel = props.currentChannel;
   const [uniqueUsers, setUniqueUsers] = useState(0);
 
-  const [messages, setMessages] = useState([]); 
+  const [messages, setMessages] = useState([]);
+  const [isMessagesLoaded, setIsMessagesLoaded] = useState(false);
 
   const countUniqueUsers = messages => {
     const uniqueUser = messages.reduce((acc, message) => {
-      if (!acc.includes(message.user.name)) {
+      if (!acc.includes(message.user.name))
         acc.push(message.user.name);
-      }
       return acc;
     }, []);
     setUniqueUsers(uniqueUser.length);
@@ -33,14 +33,14 @@ function ChatWindow (props) {
         loadedMessages.push(snap.val());
         setMessages(loadedMessages);
         countUniqueUsers(loadedMessages);
+        setIsMessagesLoaded(true);
       });
   }
 
-  useState(() => {
-    if (user && channel) {
+  useEffect(() => {
+    if (user && channel)
       addMessageListeners(channel.id);
-    }
-  }, [messages])
+  }, [isMessagesLoaded])
 
   return (
     <div className="row">
