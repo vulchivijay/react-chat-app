@@ -95,40 +95,47 @@ class Register extends React.Component {
     const {username, email, password, passwordConfirm, errors, loading} = this.state;
 
     return (
-      <div className="form-register">
-        <form onSubmit={this.handleSubmit}>
-          <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
-          <div className="form-floating">
-            <input type="text" className="form-control" placeholder="User name" onChange={this.handleChange} name="username" value={username} />
-            <label htmlFor="floatingInput">User name</label>
+      <div className="register-page container-fluid">
+        <div className="row">
+          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            <div className="form-register">
+              <form onSubmit={this.handleSubmit}>
+                <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
+                <div className="form-floating">
+                  <input type="text" className="form-control" placeholder="User name" onChange={this.handleChange} name="username" value={username} />
+                  <label htmlFor="floatingInput">User name</label>
+                </div>
+                <div className="form-floating">
+                  <input type="email" className="form-control" placeholder="name@example.com" onChange={this.handleChange} name="email" value={email} />
+                  <label htmlFor="floatingInput">Email address</label>
+                </div>
+                <div className="form-floating">
+                  <input type="password" className="form-control" placeholder="Password" onChange={this.handleChange} name="password" value={password} />
+                  <label htmlFor="floatingPassword">Password</label>
+                </div>
+                <div className="form-floating">
+                  <input type="password" className="form-control" placeholder="Password confirm" onChange={this.handleChange} name="passwordConfirm" value={passwordConfirm} />
+                  <label htmlFor="floatingPasswordConfirm">Password Confirm</label>
+                </div>
+                <button className="w-100 btn btn-lg btn-primary" type="submit">
+                  {
+                    loading ?
+                      (<span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>)
+                    :
+                    "Sign up"
+                  }
+                </button>
+                {
+                  this.state.errors.length > 0 && (
+                    <p className="mt-3 text-danger">{errors[0].message}</p>
+                  )
+                }
+                <p className="mt-3">Already a user? <Link to='/login'>Login</Link></p>
+              </form>
+            </div>
           </div>
-          <div className="form-floating">
-            <input type="email" className="form-control" placeholder="name@example.com" onChange={this.handleChange} name="email" value={email} />
-            <label htmlFor="floatingInput">Email address</label>
-          </div>
-          <div className="form-floating">
-            <input type="password" className="form-control" placeholder="Password" onChange={this.handleChange} name="password" value={password} />
-            <label htmlFor="floatingPassword">Password</label>
-          </div>
-          <div className="form-floating">
-            <input type="password" className="form-control" placeholder="Password confirm" onChange={this.handleChange} name="passwordConfirm" value={passwordConfirm} />
-            <label htmlFor="floatingPasswordConfirm">Password Confirm</label>
-          </div>
-          <button className="w-100 btn btn-lg btn-primary" type="submit">
-            {
-              loading ?
-                (<span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>)
-              :
-              "Sign up"
-            }
-          </button>
-          {
-            this.state.errors.length > 0 && (
-              <p className="mt-3 text-danger">{errors[0].message}</p>
-            )
-          }
-          <p className="mt-3">Already a user? <Link to='/login'>Login</Link></p>
-        </form>
+        </div>
       </div>
     );
   }

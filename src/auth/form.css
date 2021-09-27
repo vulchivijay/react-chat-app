@@ -1,9 +1,21 @@
 /* form styles */
+.login-page,
+.register-page {
+  height: 100vh;
+}
+
+.login-page .col-md-6,
+.register-page .col-md-6 {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .form-sign-in,
 .form-register {
-  max-width: 330px;
-  padding: 15px;
+  width: 330px;
   margin: auto;
+  text-align: center;
 }
 
 .form-sign-in input,
