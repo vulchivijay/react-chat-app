@@ -6,7 +6,7 @@ import './index.css';
 
 function ChannelPanel (props) {
   const user = props.userProfile;
-  const [activeFeature, setActiveFeature] = useState('channels');
+  const [activeFeature, setActiveFeature] = useState('chats');
 
   const handleChange = (name) => {
     setActiveFeature(name);
@@ -16,14 +16,14 @@ function ChannelPanel (props) {
     <div className="row">
       <div className="col-md-2 chat-features">
         <ul className="features-list">
-          <li className={"chat-channel-icon " + (activeFeature === 'channels' ? 'active' : '')} onClick={() => handleChange('channels')}>
-            <i className="bi bi-person-lines-fill"></i>
-            <i className="bi bi-person-lines-fill"></i>
-            <span>Channels</span>
-          </li>
           <li className={"chat-icon " + (activeFeature === 'chats' ? 'active' : '')} onClick={() => handleChange('chats')}>
             <i className="bi bi-chat-text-fill"></i>
             <span>Chats</span>
+          </li>
+          <li className={"chat-channel-icon " + (activeFeature === 'channels' ? 'active' : '')} onClick={() => handleChange('channels')}>
+            <i className="bi bi-person-lines-fill"></i>
+            <i className="bi bi-person-lines-fill"></i>
+            <span>Teams</span>
           </li>
         </ul>
       </div>

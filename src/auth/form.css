@@ -4,8 +4,13 @@
   height: 100vh;
 }
 
-.login-page .col-md-6,
-.register-page .col-md-6 {
+.login-page .col-md-8,
+.register-page .col-md-8 {
+  background-color: #008DFF;
+}
+
+.login-page .col-md-4,
+.register-page .col-md-4 {
   height: 100vh;
   display: flex;
   align-items: center;

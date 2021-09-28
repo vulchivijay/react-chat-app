@@ -7,20 +7,25 @@
   text-align: center;
   padding-right: 0;
   padding-left: 0;
+  background-color: #2F2D4A;
 }
 
 .chat-features li {
   padding: 5px;
   font-size: 12px;
+  color: #ffffff;
 }
 
-.chat-features li.active,
+.chat-features li.active {
+  padding-left: 2px;
+  border-left: 3px solid #ffffff;
+}
+
 .channel-list li.active,
 .users-list li.active,
-.chat-features li:hover,
 .channel-list li:hover,
 .users-list li:hover {
-  background-color: var(--bs-gray-200);
+  background-color: #f1f1f1;
 }
 
 .chat-features li i {

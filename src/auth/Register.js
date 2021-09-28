@@ -97,8 +97,8 @@ class Register extends React.Component {
     return (
       <div className="register-page container-fluid">
         <div className="row">
-          <div className="col-md-6"></div>
-          <div className="col-md-6">
+          <div className="col-md-8"></div>
+          <div className="col-md-4">
             <div className="form-register">
               <form onSubmit={this.handleSubmit}>
                 <h1 className="h3 mb-3 fw-normal">Please sign up</h1>

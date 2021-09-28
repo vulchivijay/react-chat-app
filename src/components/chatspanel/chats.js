@@ -14,6 +14,7 @@ function Chats (props) {
   const [users, setUsers] = useState();
   const [isUsersLoaded, setIsUsersLoaded] = useState(false);
   const [selectedUser, setSelectedUser] = useState('');
+  // const [isUsersLoaded, setIsUsersLoaded] = useState(false);
 
   const addStatusToUser = (userUid, connected = true) => {
     const updatedUsers = users.reduce((acc, user) => {
@@ -86,8 +87,12 @@ function Chats (props) {
   }
 
   useEffect(() => {
-    if (user)
+    if (user) {
       addListeners(user.uid);
+      if(users && users.length > 0) {
+        setSelectedUser(users[0].name);
+      }
+    }
   }, [isUsersLoaded]);
 
   return (
@@ -100,10 +105,15 @@ function Chats (props) {
           users && users.map((user) => {
             return (
             <li
-              className={user.name === selectedUser ? 'active': ''}
+              className={"d-flex a-center " + (user.name === selectedUser ? 'active': '')}
               key={user.uid}
               onClick={() => changeChannel(user) }>
-              <i className="bi bi-circle-fill" style={{color: isUserStatus(user) ? '#20c997' : '#dee2e6' }}></i> {' '}
+              <figure>
+                <img src={user.avatar} alt={user.name} />
+                <figcaption>
+                  <i className="bi bi-circle-fill" style={{color: isUserStatus(user) ? '#20c997' : '#dee2e6' }}></i> {' '}
+                </figcaption>
+              </figure>
               <span>{ user.name }</span>
             </li>
             )

@@ -14,7 +14,7 @@ html {
 }
 
 *::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
  
 *::-webkit-scrollbar-track {
@@ -22,7 +22,7 @@ html {
 }
  
 *::-webkit-scrollbar-thumb {
-  background-color: black;
+  background-color: #2F2D4A;
   outline: none;
 }
 

@@ -17,14 +17,6 @@
   overflow: hidden;
 }
 
-.user-profile img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  cursor: pointer;
-}
-
 .sign-out {
   padding: 5px 10px;
   border-top: 1px solid #eee;
@@ -32,6 +24,6 @@
 }
 
 .sign-out:hover {
-  background-color: #0d6efd;
+  background-color: #0058FF;
   color: #fff;
 }

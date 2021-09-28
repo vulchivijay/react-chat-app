@@ -41,8 +41,8 @@ class Login extends React.Component {
     return (
       <div className="login-page container-fluid">
         <div className="row">
-          <div className="col-md-6"></div>
-          <div className="col-md-6">
+          <div className="col-md-8"></div>
+          <div className="col-md-4">
             <div className="form-sign-in">
               <form onSubmit={this.handleSubmit}>
                 <h1 className="h3 mb-3 fw-normal">Please sign in</h1>

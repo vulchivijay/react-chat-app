@@ -27,7 +27,9 @@ function UserProfile (props) {
   return (
     (userName ? 
       <div className="user-profile">
-        <img src={userPhoto} alt='profile' onClick={handleUser}/>
+        <figure>
+          <img src={userPhoto} alt='profile' onClick={handleUser}/>
+        </figure>
         <div id="user_modal" className="user-profile-modal d-none">
           <div onClick={handleSignOut} className="sign-out">Sign out</div>
         </div>

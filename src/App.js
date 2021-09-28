@@ -43,6 +43,6 @@ const mapStateToProps = state => ({
   currentUser: state.user.currentUser,
   currentChannel: state.channel.currentChannel,
   isPrivateChannel: state.channel.isPrivateChannel
-})
+});
 
 export default connect(mapStateToProps)(App);
