@@ -82,15 +82,23 @@ function Chats (props) {
       name: user.name
     }
     setCurrentChannel(channelData);
-    setSelectedUser(user.name);
     setPrivateChannel(true);
+    setSelectedUser(user.name);
   }
 
   useEffect(() => {
     if (user) {
       addListeners(user.uid);
       if(users && users.length > 0) {
-        setSelectedUser(users[0].name);
+        const defaultUser = users[0];
+        const channelId = getChannelId(user.uid);
+        const channelData = {
+          id: channelId,
+          name: defaultUser.name
+        }
+        setCurrentChannel(channelData);
+        setPrivateChannel(true);
+        setSelectedUser(defaultUser.name);
       }
     }
   }, [isUsersLoaded]);

@@ -23,7 +23,7 @@ function ChannelPanel (props) {
           <li className={"chat-channel-icon " + (activeFeature === 'channels' ? 'active' : '')} onClick={() => handleChange('channels')}>
             <i className="bi bi-person-lines-fill"></i>
             <i className="bi bi-person-lines-fill"></i>
-            <span>Teams</span>
+            <span>Groups</span>
           </li>
         </ul>
       </div>

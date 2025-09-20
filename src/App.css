@@ -69,7 +69,7 @@ header {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid #ffffff;
   overflow: hidden;
 }
 
@@ -84,4 +84,9 @@ header {
 .users-list figcaption i,
 .user-profile figcaption i {
   font-size: 0.8rem;
+}
+
+* {
+  scrollbar-color: #ff0 white; /* thumb and track color */
+  scrollbar-width: thin;
 }

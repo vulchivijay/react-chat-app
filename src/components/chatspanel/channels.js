@@ -95,7 +95,6 @@ function Channels (props) {
           <h6 className="space-between">
             <span>Channels ({channels.length})</span>
             <i className="bi bi-plus-square-fill" data-bs-toggle="modal" data-bs-target="#channelModal"></i>
-            {/* <button type="button" className="btn btn-primary" ></button> */}
           </h6>
           <ul className="row channel-list">
             {
